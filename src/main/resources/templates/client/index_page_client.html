@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:border-collapse="http://java.sun.com/xml/ns/persistence/orm">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Page Client</title>
+
+    <style>
+        table, td, th {
+            border: 1px solid black;
+        }
+
+        table {
+            /*width: 100%;*/
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+
+<table border-collapse: collapse;>
+    <thead>
+    <tr>
+<!--        <th>Id</th>-->
+        <th>Заявки</th>
+<!--        <th>Стоимость</th>-->
+<!--        <th>Дата выполнения</th>-->
+<!--        <th>Статус</th>-->
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="ap : ${userDto.getApplicationDtoList()}">
+<!--            <td th:text="${ap.id}"></td>-->
+            <td> <a th:href="@{/client/check_status/{id}(id=${ap.id})}" th:text="${ap.request}"></a></td>
+<!--            <td th:text="${ap.bid}"></td>-->
+<!--            <td th:text="${ap.due_date}"></td>-->
+<!--            <td th:text="${ap.status.title}"></td>-->
+        </tr>
+    </tbody>
+</table>
+
+
+
+<br>
+<form th:action="@{/client/create}" method="get">
+    <input type="submit" value="Добавить заявку">
+</form>
+
+</body>
+</html>

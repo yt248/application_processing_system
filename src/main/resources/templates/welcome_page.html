@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Page</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        div {
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Hello Page</h1>
+<div>
+    <form th:action="@{/admin/}" th:method="GET">
+        <button type="submit">Go to Admin page</button>
+    </form>
+    <br>
+    <form th:action="@{/client/}" th:method="GET">
+        <button type="submit">Go to Client page</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/applications_system
+    username: admin
+    password: admin
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDB103Dialect
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+#
+#  security:
+#    user:
+#      name: user
+#      password: 123
+
+

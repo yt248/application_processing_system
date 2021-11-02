@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:border-collapse="http://java.sun.com/xml/ns/persistence/orm">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome Page Admin</title>
+
+    <style>
+        table, td, th {
+            border: 1px solid black;
+        }
+
+        table {
+            /*width: 100%;*/
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+
+<table border-collapse: collapse;>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Заявки</th>
+        <th>Стоимость</th>
+        <th>Дата выполнения</th>
+        <th>Статус</th>
+        <th>Edit</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ap : ${applications}">
+        <td th:text="${ap.id}"></td>
+        <td th:text="${ap.request}"></td>
+        <td th:text="${ap.bid}"></td>
+        <td th:data="${ap.due_date}"></td>
+        <td th:text="${ap.status.title}"></td>
+        <td><a th:href="@{/admin/application/{id}/edit(id=${ap.id})}">Edit</a></td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<div>
+    <br>
+    <form th:action="@{/admin/statistic/application}" th:method="GET">
+        <button type="submit">Go to Statistic page</button>
+    </form>
+</div>
+
+
+
+<!--<br>-->
+<!--<select name="status">-->
+<!--    <option th:each="status : ${T(eugene.com.application.processing.system.model.StatusApplication).values()}"-->
+<!--            th:value="${status}" th:text="${status.getTitle()}"></option>-->
+<!--</select>-->
+
+<!--<br>-->
+<!--<select name="status2">-->
+<!--    <option th:each="status2 : ${statusList}"-->
+<!--            th:value="${status2}" th:text="${status2.getTitle()}"></option>-->
+<!--</select>-->
+</body>
+</html>

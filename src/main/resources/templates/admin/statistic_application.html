@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistic Application</title>
+</head>
+<body>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Количество выполенных заявок</th>
+        <th>Количество отклоненных заявок</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${applicationListDoneSize}"></td>
+        <td th:text="${applicationListClosedSize}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<form th:action="@{/admin/}" th:method="GET">
+    <button type="submit">Go back</button>
+</form>
+
+<!--<table>-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>Id</th>-->
+<!--        <th>Заявки</th>-->
+<!--        <th>Стоимость</th>-->
+<!--        <th>Дата выполнения</th>-->
+<!--        <th>Статус</th>-->
+
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="ap : ${applicationListClosed}">-->
+<!--        <td th:text="${ap.id}"></td>-->
+<!--        <td th:text="${ap.request}"></td>-->
+<!--        <td th:text="${ap.bid}"></td>-->
+<!--        <td th:data="${ap.due_date}"></td>-->
+<!--        <td th:text="${ap.status.title}"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+
+</body>
+</html>

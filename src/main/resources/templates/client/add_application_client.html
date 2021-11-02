@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:border-collapse="http://java.sun.com/xml/ns/persistence/orm">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Application</title>
+
+
+</head>
+<body>
+
+
+<div>
+    <form th:action="@{/client/add}" th:method="POST" th:object="${appDto}">
+
+        <table>
+            <tr>
+                <td>Заявка</td>
+                <td>:</td>
+                <td><input type="text" th:field="*{request}" /></td>
+            </tr>
+            <tr>
+                <td>Стоимость</td>
+                <td>:</td>
+                <td><input type="text" th:field="*{bid}" /></td>
+            </tr>
+            <tr>
+                <td>Дата</td>
+                <td>:</td>
+                <td><input type="date" th:field="*{due_date}" /></td>
+            </tr>
+            <tr>
+                <td>Статус</td>
+                <td>:</td>
+                <td>
+                    <select name="status">
+                        <option th:each="status : ${T(eugene.com.application.processing.system.model.StatusApplication).values()}"
+                                th:value="${status}" th:text="${status.getTitle()}"></option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Add">
+    </form>
+</div>
+
+<br>
+<form th:action="@{/client/}" th:method="GET">
+    <button type="submit">Go back</button>
+</form>
+
+</body>
+</html>

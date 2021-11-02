@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:border-collapse="http://java.sun.com/xml/ns/persistence/orm">
+<head>
+    <meta charset="UTF-8">
+    <title>Check status application</title>
+
+
+</head>
+<body>
+
+<table>
+    <tr>
+        <td>Заявка</td>
+        <td>:</td>
+        <td th:text="${appDto.request}"></td>
+    </tr>
+    <tr>
+        <td>Стоимость</td>
+        <td>:</td>
+        <td th:text="${appDto.bid}"></td>
+    </tr>
+    <tr>
+        <td>Дата</td>
+        <td>:</td>
+        <td th:text="${appDto.due_date}"></td>
+    </tr>
+    <tr>
+        <td>Статус</td>
+        <td>:</td>
+        <td th:text="${appDto.status.title}"></td>
+    </tr>
+</table>
+
+<br>
+<form th:action="@{/client/}" th:method="GET">
+    <button type="submit">Go back</button>
+</form>
+
+</body>
+</html>
